@@ -30,7 +30,7 @@ jobs:
       run: icacls . /grant "Everyone:(F)"
 
     - name: Clean target directory
-      run: rm -rf target/
+      run: Remove-Item -Recurse -Force target
 
     - name: Build with Maven
       run: mvn clean package -e -X
