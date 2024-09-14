@@ -26,6 +26,12 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-maven-
 
+    - name: Set permissions
+      run: icacls . /grant Everyone:(F)
+
+    - name: Clean target directory
+      run: rm -rf target/
+
     - name: Build with Maven
       run: mvn clean package -e -X
       env:
