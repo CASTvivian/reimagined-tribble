@@ -41,7 +41,7 @@ jobs:
 
     - name: Create EXE using jpackage
       run: |
-        jpackage --input target/ \
+        jpackage --input ./ \
         --name UploadTool \
         --main-jar UploadTool-1.0-SNAPSHOT-shaded.jar \
         --main-class org.example.Main \
