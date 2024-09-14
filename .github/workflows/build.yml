@@ -31,7 +31,9 @@ jobs:
 
     - name: Clean target directory
       run: |
-        Remove-Item -Recurse -Force target
+        if (Test-Path "target") {
+          Remove-Item -Recurse -Force target
+        }
         New-Item -ItemType Directory -Path target
 
     - name: Build with Maven
