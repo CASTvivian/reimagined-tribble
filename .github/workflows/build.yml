@@ -30,7 +30,12 @@ jobs:
       run: mvn clean package -Dfile.encoding=UTF-8
 
     - name: Check generated JAR files
-      run: dir target/
+      run: |
+        dir target/
+        if not exist target\UploadTool-1.0-SNAPSHOT-shaded.jar (
+          echo "Error: JAR file not found!"
+          exit 1
+        )
 
     - name: Create EXE using jpackage
       run: |
