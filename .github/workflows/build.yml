@@ -27,7 +27,7 @@ jobs:
           ${{ runner.os }}-maven-
 
     - name: Set permissions
-      run: icacls . /grant Everyone:(F)
+      run: icacls . /grant "Everyone:(F)"
 
     - name: Clean target directory
       run: rm -rf target/
