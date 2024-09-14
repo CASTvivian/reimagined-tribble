@@ -41,12 +41,12 @@ jobs:
 
     - name: Create EXE using jpackage
       run: |
-        jpackage --input ./ \
-        --name UploadTool \
-        --main-jar UploadTool-1.0-SNAPSHOT-shaded.jar \
-        --main-class org.example.Main \
-        --type exe \
-        --dest src/main/
+       jpackage --input ./target/ \
+       --name UploadTool \
+       --main-jar UploadTool-1.0-SNAPSHOT-shaded.jar \
+       --main-class org.example.Main \
+       --type exe \
+       --dest src/main/
 
     - name: Upload EXE
       uses: actions/upload-artifact@v3
