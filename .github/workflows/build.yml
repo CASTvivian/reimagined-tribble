@@ -33,11 +33,11 @@ jobs:
 
     - name: Check generated JAR files
       run: |
+       if (!(Test-Path "target/UploadTool-1.0-SNAPSHOT-shaded.jar")) {
+        Write-Error "JAR file not found!"
+        } else {
         dir target/
-        if not exist target\UploadTool-1.0-SNAPSHOT-shaded.jar (
-          echo "Error: JAR file not found!"
-          exit 1
-        )
+        }
 
     - name: Create EXE using jpackage
       run: |
