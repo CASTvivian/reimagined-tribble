@@ -33,8 +33,9 @@ jobs:
       run: |
         if (Test-Path "target") {
           Remove-Item -Recurse -Force target
+        } else {
+          Write-Host "No target directory to remove"
         }
-        New-Item -ItemType Directory -Path target
 
     - name: Build with Maven
       run: mvn clean package -e -X
